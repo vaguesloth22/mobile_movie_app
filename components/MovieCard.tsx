@@ -4,7 +4,7 @@ import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 export default function MovieCard({ id, poster_path, title, vote_average, release_date }: Movie) {
-  console.log(poster_path);
+  // console.log(poster_path);
   return (
     <Link href={`/movies/${id}`} asChild>
       <TouchableOpacity className='w-[30%]'>
@@ -20,6 +20,7 @@ export default function MovieCard({ id, poster_path, title, vote_average, releas
         />
         <Text
           className='text-sm font-bold text-white mt-2'
+          numberOfLines={1}
         >{title}</Text>
         <View className='flex-row items-center justify-start gap-x-1'>
           <Image 
@@ -29,7 +30,9 @@ export default function MovieCard({ id, poster_path, title, vote_average, releas
           <Text className='text-xs font-bold text-white uppercase'>  
             {Math.round(vote_average / 2 * 10) / 10}
           </Text>
-          <Text>
+        </View>
+        <View className='flex-row items-center justify-between'>
+          <Text className='text-xs text-light-300 font-medium uppercase'>
             {release_date?.split('-')[0]}
           </Text>
         </View>
